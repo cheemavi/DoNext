@@ -1,7 +1,7 @@
 # DO.Next
 
-## About:
-###### *A lightweight task managing website application with accessibility features!*
+## About
+##### *A lightweight task managing website application with accessibility features!*
 ---
 ### Features: 
   - Add / Remove Tasks
@@ -12,24 +12,40 @@
   - Light/Dark Themes
   - Speech to Text for Adding New Tasks
 ---------------------------------------------------------------------------------------
-## Technologies:
+## Static Website 
+ You can access the static website for the project __[here](https://do-next-application.netlify.app/)__
+
+---------------------------------------------------------------------------------------
+## Technologies
   - JavaScript(ES6+)
   - React
   - Redux
   - HTML5
   - TailwindCSS
+  - Node.js
+  - [Netlify](https://docs.netlify.com/)
   - Vite
   - [React Persist](https://www.npmjs.com/package/redux-persist)
   - [React Speech Recognition](https://www.npmjs.com/package/react-speech-recognition)
   - [file-saver](https://www.npmjs.com/package/file-saver)
 ---------------------------------------------------------------------------------------
-## How to Install & Run:
+## How to Install & Run Locally
+Start off by opening up a terminal with Git installed and configured to path
+#### Clone the repository:
+Do this by running this in a terminal: `git clone https://github.com/cheemavi/DoNext.git`
+#### Navigating to directory:
+The cloned repository will make a <mark>DoNext</mark> directory on your computer. <br>
+Navigate to the <mark>DoNext</mark> directory on your computer. 
+#### Dealing with dependencies:
+Make sure you're still in the <mark>DoNext</mark> directory. <br>
+Now, install the project's dependencies by running the following: `npm install`
+#### Running the project:
+Make sure you're still in the <mark>DoNext</mark> directory. <br>
+Now, run the following: `npm run dev`<br><br>
+Vite will now run in *development mode* and your terminal window should look like this now: <br>
+![Vite Development Mode Shows A Local Host Link In Terminal](https://github.com/user-attachments/assets/d8ecf0d9-c025-4170-939d-450150f52c9c) <br> <br>
+Now click on the local host.
+It should look something like this circled link:<br>
+![link to click in terminal for Vite development mode](https://github.com/user-attachments/assets/fe1e14b5-c0a7-4f94-8310-68bad84ed131) <br>
 
-
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+##### The project is now running locally!
