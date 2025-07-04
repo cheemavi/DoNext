@@ -19,8 +19,8 @@
   - Speech to Text for Adding New Tasks
 ---------------------------------------------------------------------------------------
 ## Static Website 
- You can access the static website for the project __[here](https://do-next-application.netlify.app/)__
-
+ You can access the static website for the project __[here](https://do-next-application.netlify.app/)__  <br>
+#### <mark>Disclaimer:</mark> Application designed *ONLY* Desktop display for now.
 ---------------------------------------------------------------------------------------
 ## Technologies
   - JavaScript(ES6+)
