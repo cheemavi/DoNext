@@ -1,5 +1,4 @@
 import {createSlice} from '@reduxjs/toolkit';
-import { ToDoList } from '../ToDoList.js';
 //initial state of the store:
 const initialState = {
     tasks: [
