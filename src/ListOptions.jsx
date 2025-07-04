@@ -97,7 +97,7 @@ function ListOptions(){
                         </a>
                     </div>
                 </div>
-            )};
+            )}
             </div>);
             }
 export default ListOptions;
