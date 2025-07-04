@@ -1,5 +1,5 @@
 import { useSelector,useDispatch} from "react-redux";
-import { editPriority,changeProgress,deleteTask,renameTask, handleNameChange,markEdit} from "./reducers/TaskSlice.js";
+import { editPriority,changeProgress,deleteTask, handleNameChange,markEdit} from "./reducers/TaskSlice.js";
 import { useState } from "react";
 function TaskList(){
        const [txt, setText] = useState(''); // Initialize with an empty string or default text
@@ -75,32 +75,11 @@ function TaskList(){
     //handle delete task
     const handleDeleteTask = (t)=>{dispatch(deleteTask(t))}
 
-    //handle rename task
-    const handleRename = (t)=>{dispatch(renameTask(t))}
 
-    //handle actual editing of name 
-    const handleTaskChange =()=>{
-        if (txt){
-                   //dispatch(handleNameChange([txt,changeEl]));
-                   setText('');
-                   setEl(0);
-
-       
-               }
-
-               
-       
-     
-    }
     const handleTaskNewwName = (t)=>{dispatch(handleNameChange(t))};
     //handle function editing:
     function editingNow(formData){
            const id = formData.get('sub');
-
-     //  if(saved===-1|| id===saved){
-               //get id of task being selected       
-       //use id to set what is being edited
-       //setSaved(id)
 
        //get new name for task
        const newName = formData.get('changingTaskName');
@@ -130,20 +109,9 @@ function TaskList(){
            handleTaskNewwName([id,newName]);   
         }
 
-       //update the edit state:
-       //handleRename(id);
-              //setSaved(-1);
 
-              handleMarkEdited(-1)
-              //console.log('www')
-       
+              handleMarkEdited(-1);
 
-
-
-       //reset the editing save thing to null
-        //console.log(saved)
-       // console.log(id+'ww')
-       
 
      
 
