@@ -1,7 +1,9 @@
 # DO.Next
 
 ## About
-##### *A lightweight task managing website application with accessibility features!*
+#### *A lightweight task managing website application with accessibility features!*
+![DoNext Default Page](https://github.com/user-attachments/assets/8d349b20-7970-422c-85ba-3b711bea3a7c)<br>
+
 ---
 ### Features: 
   - Add / Remove Tasks
@@ -9,7 +11,9 @@
   - Clear Task List
   - Edit Task's status, priority, and name
 ### Accessibility Features:
-  - Light/Dark Themes
+  - Light/Dark Themes:<br>
+![Light Mode](https://github.com/user-attachments/assets/d140f04e-21b3-4043-b580-5670ed17717c) <br>
+![Dark Mode](https://github.com/user-attachments/assets/5324d76e-6d41-4469-ae33-d89f61f67cd9)<br>
   - Speech to Text for Adding New Tasks
 ---------------------------------------------------------------------------------------
 ## Static Website 
@@ -49,3 +53,4 @@ It should look something like this circled link:<br>
 ![link to click in terminal for Vite development mode](https://github.com/user-attachments/assets/fe1e14b5-c0a7-4f94-8310-68bad84ed131) <br>
 
 ##### The project is now running locally!
+
