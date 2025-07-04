@@ -1,8 +1,31 @@
-# React + Vite
+# DO.Next
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## About:
+###### *A lightweight task managing website application with accessibility features!*
+---
+### Features: 
+  - Add / Remove Tasks
+  - Export Task Lists via Downloading
+  - Clear Task List
+  - Edit Task's status, priority, and name
+### Accessibility Features:
+  - Light/Dark Themes
+  - Speech to Text for Adding New Tasks
+---------------------------------------------------------------------------------------
+## Technologies:
+  - JavaScript(ES6+)
+  - React
+  - Redux
+  - HTML5
+  - TailwindCSS
+  - Vite
+  - [React Persist](https://www.npmjs.com/package/redux-persist)
+  - [React Speech Recognition](https://www.npmjs.com/package/react-speech-recognition)
+  - [file-saver](https://www.npmjs.com/package/file-saver)
+---------------------------------------------------------------------------------------
+## How to Install & Run:
 
-Currently, two official plugins are available:
+
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
