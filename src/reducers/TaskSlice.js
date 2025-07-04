@@ -56,6 +56,7 @@ const tasksSlice = createSlice({
         },
 
         //update store to reflect task currently in 'edit' mode
+        //NOTE:currentlyEdited = -1 means no task is being edited currently
         markEdit:(state,action)=>{
           state.currentlyEdited = action.payload;
         },

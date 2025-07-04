@@ -7,6 +7,7 @@ import DarkModeComponent from './DarkModeComponent.jsx';
 import { useSelector} from "react-redux";
 
 function App() {
+  //fetch current theme from store
   const currentTheme = useSelector((state)=>state.currentTheme.theme);
 
   //add all components to document body 

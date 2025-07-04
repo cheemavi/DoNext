@@ -1,5 +1,5 @@
 function TitleComponent(){
-    /** function based component for application's title card */
+    /**return component for application's title card */
     return(<div className="flex-flex-col text-center items-center space-y-0 mt-4 m-b-0 ">
         <div id='title-container' className="flex flex-row text-7xl px-25">
         <h1 id= 'appName1' className="font-light font-stretch-extra-expanded text-indigo-200 dark:text-slate-400">Do.</h1>

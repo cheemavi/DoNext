@@ -1,16 +1,37 @@
 import { useSelector,useDispatch} from "react-redux";
-import { editPriority,changeProgress,deleteTask, handleNameChange,markEdit} from "./reducers/TaskSlice.js";
+import { editPriority,changeProgress,deleteTask,
+        handleNameChange,markEdit} from "./reducers/TaskSlice.js";
 import { useState } from "react";
 function TaskList(){
-       const [txt, setText] = useState(''); // Initialize with an empty string or default text
-       const [changeEl, setEl] = useState(''); // Initialize with an empty string or default text
-       //const [saved,setSaved] = useState(-1);//keep track of what is edited
+       //temporarily maintain state of status and priority before updating it in store
        const [taskStatus,setTaskStatus] = useState('');
        const [taskPriority,setTaskPriority] = useState('');
-       //set box color based on priority
+
+       //fetch task list and index of currently edited task from store
+       const tasks = useSelector((state)=>state.taskList.tasks); 
+       const edita = useSelector((state)=>state.taskList.currentlyEdited); 
+
+       const dispatch = useDispatch();
+
+       //temporary state handling of priority and status properties
+       const handlePriorityTempChange = (event)=>{setTaskPriority(event.target.value)};
+       const handleTaskStatusChange = (event)=>{setTaskStatus(event.target.value)};
+
+       //dispatch action to make changes to task in store
+       const handlePriorityChange = (t)=>{dispatch(editPriority(t))};
+       const handleProgressChange = (t)=>{dispatch(changeProgress(t))};
+       const handleMarkEdited = (t)=>{dispatch(markEdit(t))};
+       const handleTaskNewwName = (t)=>{dispatch(handleNameChange(t))};
+
+       //dispatch delete action to delete task from store
+       const handleDeleteTask = (t)=>{dispatch(deleteTask(t))};
+
+       /*set task box's shadow based on priority
+       -high priority = red shadow
+       -low priority = indigo shadow
+       -default +(in case of issue) = indigo shadow */
        const handlePriorityShadow = (pShadow)=>{
-     
-       switch(pShadow){ //incorporate getting the dark mode and altering it here
+       switch(pShadow){ 
               case 'low':
                      return 'shadow-indigo-500/40 dark:shadow-indigo-800/40';
               case 'high':
@@ -18,51 +39,14 @@ function TaskList(){
               default:
                      return 'shadow-indigo-500/40 dark:shadow-indigo-800/40 ';
        }
-    }
+       };
 
-
-       const handleTaskStatusChange = (event)=>{setTaskStatus(event.target.value);
-              //console.log(taskStatus)
-       }
-         const handlePriorityTempChange = (event)=>{setTaskPriority(event.target.value);
-              //console.log(taskStatus)
-       }
-
-
-
-
-       
-
-
-
-       
-    //get info from state
-    const tasks = useSelector((state)=>state.taskList.tasks); //want tasks part of initial state
-    //
-        const edita = useSelector((state)=>state.taskList.currentlyEdited); //want tasks part of initial state
-
-    const dispatch = useDispatch();
-    //console.log(edita)
-
-    const handlePriorityChange = (t)=>{
-       //check if editable:
-       dispatch(editPriority(t))};
-
-       
-
-    //handle completion status
-    const handleProgressChange = (t)=>{dispatch(changeProgress(t))};
-
-    //handle the edit thing 
-       const handleMarkEdited = (t)=>{
-             // console.log(t+'- store:'+ edita)
-                      dispatch(markEdit(t))
-              
-             };
-
-    //handle displaying correct status and styling
-    const handleStatusStyling = (s)=>{
-     
+       /* set task's status styling depending on its status 
+       * -not started = red text
+       * -in progress = black text
+       * -completed = green text
+       */
+       const handleStatusStyling = (s)=>{
        switch(s){
               case 'Not Started':
                      return 'text-sm font-extrabold py-2 text-red-800 pl-5 dark:text-rose-950';
@@ -71,62 +55,33 @@ function TaskList(){
               case 'Completed':
                      return 'text-sm font-extrabold text-emerald-800 py-2 pl-5 dark:text-emerald-900';
        }
-    }
-    //handle delete task
-    const handleDeleteTask = (t)=>{dispatch(deleteTask(t))}
+       };
 
 
-    const handleTaskNewwName = (t)=>{dispatch(handleNameChange(t))};
-    //handle function editing:
-    function editingNow(formData){
-           const id = formData.get('sub');
+       //handle 
+       function editingNow(formData){
+              //grab task's updated values after edit form submitted
+              const id = formData.get('sub');
+              const newName = formData.get('changingTaskName');
+              const progressOption = formData.get('status');
+              const priorityOption = formData.get('priority');
 
-       //get new name for task
-       const newName = formData.get('changingTaskName');
-       //get what progress option selected
-       const progressOption = formData.get('status');
-       //get what prority option selected
-       const priorityOption = formData.get('priority');
+              //get original vals if default:
+              if (progressOption){
+                     //update status
+                     handleProgressChange([id,progressOption]);
+              }
+              if (priorityOption){
+                     //update priority
+                     handlePriorityChange([id,priorityOption]);
+              }
+              if(newName){
+              handleTaskNewwName([id,newName]);   
+              }
 
-       //get original vals if default:
-          if (progressOption){
-              //update status
-              handleProgressChange([id,progressOption]);
-       }
-
-       //update the values of the current Edit:
-          if (priorityOption){
-              //update priority
-              handlePriorityChange([id,priorityOption]);
-       }
-
-       
-
- 
-
-        //update name
-        if(newName){
-           handleTaskNewwName([id,newName]);   
-        }
-
-
+              //reset isEdited in state 
               handleMarkEdited(-1);
-
-
-     
-
-
-
-      
-
-      
-
-
-      
-
-
-
-    }
+       };
 
     return(<div className=" w-3xl mb-4  py-3 px-3 space-x-5 space-y-0 my-3 ml-18 mr-5 rounded items-center justify-between ">
       
